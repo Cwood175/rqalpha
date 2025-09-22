@@ -314,10 +314,12 @@ import os
 import re
 import subprocess
 import sys
-import functools
 
 
-from pkg_resources import parse_version
+try:
+    from pkg_resources import parse_version
+except ImportError:
+    from packaging.version import parse as parse_version
 
 have_tomllib = True
 if sys.version_info >= (3, 11):
